@@ -1,0 +1,64 @@
+# ── Dev environment ───────────────────────────────────────────────────────────
+.venv/
+.local/
+__pycache__/
+*.pyc
+
+# ── Temp / build artifacts ────────────────────────────────────────────────────
+.tmp_*/
+logs/
+
+# ── Source code (not published) ───────────────────────────────────────────────
+firmware/SomloK/*.ino
+firmware/SomloK/*.ino.bak
+firmware/SomloK/*.cpp
+firmware/SomloK/*.h
+firmware/SomloK/build/*.elf
+firmware/SomloK/build/*.map
+firmware/SomloK/build/esp32.esp32.esp32s3/*.elf
+firmware/SomloK/build/esp32.esp32.esp32s3/*.map
+firmware/SDCardMSCBridge/
+firmware/UploadBridge/
+
+# ── Internal build/dev tools ──────────────────────────────────────────────────
+tools/build_somlok.sh
+tools/board_probe.sh
+tools/boot_flash.py
+tools/build_sablina_ffat_image.py
+tools/deploy_somlok_repo_media.py
+tools/generate_sablina_face_assets.py
+tools/generate_sablina_home_asset.py
+tools/generate_sablina_sd_asset.py
+tools/install_arduino_deps.sh
+tools/push_sablina_sd_asset.py
+tools/read_flash_backup.sh
+tools/restore_flash_backup.sh
+tools/usb_sd_push.py
+
+# ── Internal config / docs ────────────────────────────────────────────────────
+config/
+docs/
+
+# ── Internal notes ────────────────────────────────────────────────────────────
+IDEAS.md
+SOMLOK_QUICKSTART.md
+SOMLOK_WORKLOG.md
+UNIFICATION_PLAN.md
+
+# ── Old / leftover binaries at root ──────────────────────────────────────────
+*.bin
+!firmware/SomloK/build/**/*.bin
+*.zip
+manifest*.json
+index.html
+
+# ── Unused / private media at root ───────────────────────────────────────────
+sablina-ghost-humandect.mp4
+0501.mp4
+sablina-close-up.mp4
+sablina-crying.mp4
+sablina-eating.mp4
+sablina-sad-tired.mp4
+sablina-shower.mp4
+sablina-sleep.mp4
+# media/ folder is published (contains flasher videos)

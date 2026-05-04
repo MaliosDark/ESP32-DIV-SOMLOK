@@ -1,0 +1,57 @@
+# ── Directory ─────────────────────────────────────────────────────────────────
+Options -Indexes -MultiViews
+DirectoryIndex flasher.html
+
+# ── Block scripts, configs, backups ──────────────────────────────────────────
+<FilesMatch "\.(py|sh|json|md|bak|log|cfg|ini|env|sql)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block __pycache__ and dot-files (except this .htaccess itself)
+<FilesMatch "^\.(?!htaccess)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^__pycache__(/.*)?$ - [F,L]
+</IfModule>
+
+# ── Security headers ──────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    # Prevent clickjacking,  also block embedding in iframes
+    Header always set X-Frame-Options "DENY"
+    Header always set Content-Security-Policy "frame-ancestors 'none'; default-src 'none'; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com https://fonts.googleapis.com https://fonts.gstatic.com; media-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'"
+
+    # Prevent MIME-type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Referrer,  send origin only on cross-origin requests
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # HSTS,  1 year, include subdomains
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Permissions Policy,  allow Web Serial API (required for flasher), block unused sensors
+    Header always set Permissions-Policy "serial=(self), camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+    # Remove server fingerprint headers
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# ── Compression (faster load) ─────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript
+</IfModule>
+
+# ── Cache control ─────────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # HTML: no cache (always fresh,  bins get updated)
+    ExpiresByType text/html "access plus 0 seconds"
+    # Fonts: 1 month
+    ExpiresByType font/woff2 "access plus 1 month"
+</IfModule>
