@@ -36,7 +36,7 @@ Built for education, authorized lab testing, and RF protocol research.</p>
 ## Demo
 
 <div align="center">
-  <video src="media/demo-ghost-humandetect.mp4" width="270" controls loop></video>
+  <video src="https://github.com/MaliosDark/ESP32-DIV-SOMLOK/raw/master/media/demo-ghost-humandetect.mp4" width="270" controls loop></video>
   <br/><br/>
   <sub>
     <strong>Ghost Detector</strong>,  scans the air for WiFi probe requests and beacon frames from devices that aren't visible as normal networks;<br/>
@@ -74,6 +74,9 @@ At its heart lives **Sablina**, an autonomous AI-style companion that displays r
 ---
 
 ## System Architecture
+
+<details>
+<summary>View diagram</summary>
 
 ```mermaid
 flowchart TD
@@ -117,9 +120,14 @@ flowchart TD
     Brain --> TFT
 ```
 
+</details>
+
 ---
 
 ## Feature Map
+
+<details>
+<summary>View diagram</summary>
 
 ```mermaid
 flowchart LR
@@ -184,6 +192,8 @@ flowchart LR
     SY --> SY3["NeoPixel Control"]:::sys
 ```
 
+</details>
+
 ---
 
 ## Hardware
@@ -239,6 +249,9 @@ No drivers, no IDE, no terminal. Works directly from your browser.
 - ESP32-DIV V2 or V2.1 board
 - USB cable connected to the board
 
+<details>
+<summary>View flash flow diagram</summary>
+
 ```mermaid
 flowchart LR
     classDef step fill:#0f172a,stroke:#00e5ff,color:#e2e8f0
@@ -255,6 +268,8 @@ flowchart LR
 
     A --> B --> C --> D --> E --> F --> G
 ```
+
+</details>
 
 The flasher performs a **1200-baud touch reset** automatically, you do not need to hold the BOOT button or press RESET manually.
 
@@ -346,6 +361,9 @@ Operates across **315 MHz**, **433.92 MHz**, **868.35 MHz**, and **915 MHz** ban
 
 Sablina is the animated AI companion on the SomloK home screen. She is not decorative, she is a real-time context engine.
 
+<details>
+<summary>View Sablina mood engine diagram</summary>
+
 ```mermaid
 flowchart TD
     classDef mood fill:#2d1a3e,stroke:#e879f9,color:#f0abfc
@@ -369,6 +387,8 @@ flowchart TD
     MOOD --> A3["Face thumbnail\nin status bar"]:::output
     MOOD --> A4["BLE peer name\nshown when detected"]:::output
 ```
+
+</details>
 
 | Mood | Trigger |
 |---|---|
