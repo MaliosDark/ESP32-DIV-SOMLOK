@@ -11,7 +11,7 @@ Built for education, authorized lab testing, and RF protocol research.</p>
 
 <br/>
 
-<a href="https://MaliosDark.github.io/ESP32-DIV-SOMLOK/">
+<a href="https://sablina.opensable.com/tools/">
   <img src="https://img.shields.io/badge/Web_Installer-Flash_Now-00e5ff?style=for-the-badge&logo=google-chrome&logoColor=white&labelColor=0d1117" alt="Web Installer" />
 </a>
 &nbsp;
@@ -242,7 +242,7 @@ SomloK **auto-detects** the board revision at boot by scanning I2C bus combinati
 
 No drivers, no IDE, no terminal. Works directly from your browser.
 
-**[→ Launch Web Installer](https://MaliosDark.github.io/ESP32-DIV-SOMLOK/)**
+**[→ Launch Web Installer](https://sablina.opensable.com/tools/)**
 
 **Requirements:**
 - Chrome or Edge (desktop), Web Serial API required
