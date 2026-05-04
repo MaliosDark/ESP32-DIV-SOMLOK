@@ -36,7 +36,7 @@ Built for education, authorized lab testing, and RF protocol research.</p>
 ## Demo
 
 <div align="center">
-  <video src="https://raw.githubusercontent.com/MaliosDark/ESP32-DIV-SOMLOK/master/media/demo-ghost-humandetect.mp4" width="270" controls loop></video>
+  <video src="media/demo-ghost-humandetect.mp4" width="270" controls loop></video>
   <br/><br/>
   <sub>
     <strong>Ghost Detector</strong>,  scans the air for WiFi probe requests and beacon frames from devices that aren't visible as normal networks;<br/>
