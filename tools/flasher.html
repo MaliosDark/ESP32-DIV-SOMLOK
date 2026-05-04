@@ -6,8 +6,9 @@
 <title>SomloK Flasher, ESP32-DIV V2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
-<script type="module">
-import { ESPLoader, Transport } from 'https://unpkg.com/esptool-js@0.4.6/bundle.js';
+<script>
+(async () => {
+const { ESPLoader, Transport } = await import('https://unpkg.com/esptool-js@0.4.6/bundle.js');
 
 // ── Config ───────────────────────────────────────────────────────────────────
 const GITHUB_REPO   = 'MaliosDark/ESP32-DIV-SOMLOK';
@@ -374,6 +375,8 @@ let delay = 0;
 bootSeq.forEach(([t,c]) => { setTimeout(()=>log(t,c), delay); delay+=110; });
 
 sabVid.src = VID.idle; sabVid.play().catch(()=>{});
+
+})(); // end async IIFE
 </script>
 <style>
 /* ── Reset ──────────────────────────────────────────────────────────────── */
