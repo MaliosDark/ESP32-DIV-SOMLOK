@@ -1,17 +1,14 @@
 # ── GitHub Linguist overrides ─────────────────────────────────────────────────
 
-# Arduino source → show as Arduino
-*.ino linguist-language=Arduino
+# Arduino source → count as Arduino
+*.ino linguist-language=Arduino linguist-detectable=true
 
-# Treat web flasher as vendored (don't let HTML dominate the stats)
-tools/flasher.html linguist-vendored=true
-
-# Build output: generated, ignore in stats
+# Build output: generated, skip in stats
 firmware/**/build/** linguist-generated=true
 
-# Binary / asset blobs: ignore
-*.bin linguist-generated=true
-*.gif linguist-generated=true
-*.mp4 linguist-generated=true
-*.zip linguist-generated=true
-*.sblv linguist-generated=true
+# Binary / asset blobs: not code, skip
+*.bin linguist-detectable=false
+*.gif linguist-detectable=false
+*.mp4 linguist-detectable=false
+*.zip linguist-detectable=false
+*.sblv linguist-detectable=false
