@@ -33,18 +33,12 @@ const FLASH_MAP = [
 
 const BAUD = 921600;
 
-const VID = IS_LOCAL ? {
-  idle:    '/media/sablina-idle.mp4',
-  hacking: '/media/sablina-hackin.mp4',
-  smiling: '/media/sablina-smiling.mp4',
-  scream:  '/media/sablina-screaming.mp4',
-  dance:   '/media/sablina-dance.mp4',
-} : {
-  idle:    `${GITHUB_RAW}/media/sablina-idle.mp4`,
-  hacking: `${GITHUB_RAW}/media/sablina-hackin.mp4`,
-  smiling: `${GITHUB_RAW}/media/sablina-smiling.mp4`,
-  scream:  `${GITHUB_RAW}/media/sablina-screaming.mp4`,
-  dance:   `${GITHUB_RAW}/media/sablina-dance.mp4`,
+const VID = {
+  idle:    'media/sablina-idle.mp4',
+  hacking: 'media/sablina-hackin.mp4',
+  smiling: 'media/sablina-smiling.mp4',
+  scream:  'media/sablina-screaming.mp4',
+  dance:   'media/sablina-dance.mp4',
 };
 
 // ── State ────────────────────────────────────────────────────────────────────
