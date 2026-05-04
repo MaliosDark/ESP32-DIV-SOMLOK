@@ -11,7 +11,7 @@ Built for education, authorized lab testing, and RF protocol research.</p>
 
 <br/>
 
-<a href="https://ICBizLabs.github.io/ESP32-DIV-KILAZ/">
+<a href="https://MaliosDark.github.io/ESP32-DIV-SOMLOK/">
   <img src="https://img.shields.io/badge/Web_Installer-Flash_Now-00e5ff?style=for-the-badge&logo=google-chrome&logoColor=white&labelColor=0d1117" alt="Web Installer" />
 </a>
 &nbsp;
@@ -36,7 +36,7 @@ Built for education, authorized lab testing, and RF protocol research.</p>
 ## Demo
 
 <div align="center">
-  <video src="https://github.com/MaliosDark/ESP32-DIV-SOMLOK/raw/master/media/demo-ghost-humandetect.mp4" width="270" controls loop></video>
+  <video src="media/demo-ghost-humandetect.mp4" width="270" controls loop></video>
   <br/><br/>
   <sub>
     <strong>Ghost Detector</strong>,  scans the air for WiFi probe requests and beacon frames from devices that aren't visible as normal networks;<br/>
@@ -242,7 +242,7 @@ SomloK **auto-detects** the board revision at boot by scanning I2C bus combinati
 
 No drivers, no IDE, no terminal. Works directly from your browser.
 
-**[→ Launch Web Installer](https://ICBizLabs.github.io/ESP32-DIV-KILAZ/)**
+**[→ Launch Web Installer](https://MaliosDark.github.io/ESP32-DIV-SOMLOK/)**
 
 **Requirements:**
 - Chrome or Edge (desktop), Web Serial API required
@@ -276,8 +276,8 @@ The flasher performs a **1200-baud touch reset** automatically, you do not need 
 ### Option 2, Local Server (No Internet)
 
 ```bash
-git clone https://github.com/ICBizLabs/ESP32-DIV-KILAZ.git
-cd ESP32-DIV-KILAZ
+git clone https://github.com/MaliosDark/ESP32-DIV-SOMLOK.git
+cd ESP32-DIV-SOMLOK
 python3 tools/serve_flasher.py
 # Open http://localhost:8080/tools/flasher.html
 ```
@@ -532,7 +532,7 @@ In many jurisdictions, transmitting on certain frequencies or causing wireless i
 
 Found a bug? Discovered a board variant? Have a question?
 
-**[→ Open an issue](https://github.com/ICBizLabs/ESP32-DIV-KILAZ/issues)**
+**[→ Open an issue](https://github.com/MaliosDark/ESP32-DIV-SOMLOK/issues)**
 
 ---
 
