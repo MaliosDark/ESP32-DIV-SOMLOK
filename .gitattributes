@@ -1,0 +1,17 @@
+# ── GitHub Linguist overrides ─────────────────────────────────────────────────
+
+# Arduino source → show as Arduino
+*.ino linguist-language=Arduino
+
+# Treat web flasher as vendored (don't let HTML dominate the stats)
+tools/flasher.html linguist-vendored=true
+
+# Build output: generated, ignore in stats
+firmware/**/build/** linguist-generated=true
+
+# Binary / asset blobs: ignore
+*.bin linguist-generated=true
+*.gif linguist-generated=true
+*.mp4 linguist-generated=true
+*.zip linguist-generated=true
+*.sblv linguist-generated=true
