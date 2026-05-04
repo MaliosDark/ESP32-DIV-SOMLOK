@@ -837,6 +837,135 @@ input[type="file"]::-webkit-file-upload-button{
   <div class="stand-base"></div>
 </div><!-- /monitor-wrap -->
 
+<!-- ── SD Setup Guide ─────────────────────────────────────────────────────── -->
+<div class="sd-guide" id="sd-guide">
+  <div class="sd-guide-title">⚠ FIRST-TIME SD CARD SETUP REQUIRED</div>
+  <p class="sd-guide-sub">Sablina needs 3 animation assets on the SD card to boot correctly.<br>Follow these steps <strong>after flashing</strong>:</p>
+
+  <div class="sd-steps">
+
+    <div class="sd-step">
+      <div class="sd-step-num">01</div>
+      <div class="sd-step-body">
+        <div class="sd-step-title">✅ Flash with SD inserted</div>
+        <div class="sd-step-desc">Make sure the SD card is in the ESP32-DIV slot <em>before</em> pressing FLASH.<br>
+        On first boot, the firmware will auto-format the SD and create the required folders:<br>
+        <code>/config/</code> &nbsp;·&nbsp; <code>/captures/</code> &nbsp;·&nbsp; <code>/logs/</code> &nbsp;·&nbsp; <code>/subghz/</code> &nbsp;·&nbsp; <code>/ir/</code> &nbsp;·&nbsp; <code>/ducky/</code></div>
+      </div>
+    </div>
+
+    <div class="sd-step">
+      <div class="sd-step-num">02</div>
+      <div class="sd-step-body">
+        <div class="sd-step-title">⚡ Power on once — then power off</div>
+        <div class="sd-step-desc">Let the device boot completely (wait for the screen to light up), then <strong>unplug it</strong>.<br>
+        This completes the SD initialization. Do NOT skip this step.</div>
+      </div>
+    </div>
+
+    <div class="sd-step">
+      <div class="sd-step-num">03</div>
+      <div class="sd-step-body">
+        <div class="sd-step-title">💾 Remove SD card &amp; connect to your PC</div>
+        <div class="sd-step-desc">Physically remove the SD card and insert it into your PC using a card reader.<br>
+        You should see it mounted as a drive.</div>
+      </div>
+    </div>
+
+    <div class="sd-step">
+      <div class="sd-step-num">04</div>
+      <div class="sd-step-body">
+        <div class="sd-step-title">📁 Copy these 3 files into <code>config/</code> on the SD</div>
+        <div class="sd-step-desc">Download each file and place it inside the <code>config/</code> folder on the SD card:</div>
+        <div class="sd-downloads">
+          <a class="sd-dl-btn" href="https://github.com/MaliosDark/ESP32-DIV-SOMLOK/raw/master/firmware/SomloK/sd-assets/config/sablina_idle.sblv" download>
+            ⬇ sablina_idle.sblv <span class="sd-dl-size">~9.6 MB</span>
+          </a>
+          <a class="sd-dl-btn" href="https://github.com/MaliosDark/ESP32-DIV-SOMLOK/raw/master/firmware/SomloK/sd-assets/config/sablina-hackin.sblv" download>
+            ⬇ sablina-hackin.sblv <span class="sd-dl-size">~9.6 MB</span>
+          </a>
+          <a class="sd-dl-btn" href="https://github.com/MaliosDark/ESP32-DIV-SOMLOK/raw/master/firmware/SomloK/sd-assets/config/sablina-eating.sblv" download>
+            ⬇ sablina-eating.sblv <span class="sd-dl-size">~9.6 MB</span>
+          </a>
+        </div>
+        <div class="sd-step-warn">⚠ The SD must have a <code>config/</code> folder — it was created in step 01. If not visible, create it manually.</div>
+      </div>
+    </div>
+
+    <div class="sd-step">
+      <div class="sd-step-num">05</div>
+      <div class="sd-step-body">
+        <div class="sd-step-title">🔌 Re-insert SD &amp; power on</div>
+        <div class="sd-step-desc">Put the SD card back into the ESP32-DIV, plug in USB — Sablina will boot normally with full animations.</div>
+      </div>
+    </div>
+
+  </div><!-- /sd-steps -->
+</div><!-- /sd-guide -->
+
+<style>
+.sd-guide{
+  position:relative;z-index:1;
+  width:100%;max-width:1100px;
+  margin-top:32px;
+  background:#000a00;
+  border:1px solid #ffcc00;
+  border-radius:6px;
+  padding:20px 24px 24px;
+  box-shadow:0 0 30px rgba(255,204,0,.08);
+}
+.sd-guide-title{
+  font-family:'VT323',monospace;font-size:22px;
+  color:#ffcc00;letter-spacing:3px;
+  text-shadow:0 0 12px rgba(255,204,0,.6);
+  margin-bottom:8px;
+}
+.sd-guide-sub{
+  font-size:11px;color:#998800;letter-spacing:1px;
+  margin-bottom:20px;line-height:1.7;
+}
+.sd-steps{display:flex;flex-direction:column;gap:14px;}
+.sd-step{
+  display:flex;gap:16px;align-items:flex-start;
+  background:#000500;border:1px solid #002200;
+  border-radius:4px;padding:12px 16px;
+}
+.sd-step-num{
+  font-family:'VT323',monospace;font-size:28px;
+  color:#00ff41;text-shadow:0 0 8px #00ff41;
+  min-width:32px;line-height:1;
+}
+.sd-step-body{flex:1;}
+.sd-step-title{
+  font-size:12px;color:#00ff41;letter-spacing:1px;
+  margin-bottom:5px;font-weight:bold;
+}
+.sd-step-desc{font-size:10px;color:#336633;letter-spacing:1px;line-height:1.8;}
+.sd-step-desc code{
+  color:#00ccff;background:#000d10;
+  padding:1px 5px;border-radius:2px;font-size:10px;
+}
+.sd-step-warn{
+  margin-top:8px;font-size:10px;
+  color:#ffcc00;letter-spacing:1px;
+  border-left:2px solid #ffcc00;padding-left:8px;
+}
+.sd-step-warn code{color:#ffcc00;font-size:10px;}
+.sd-downloads{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.sd-dl-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:transparent;border:1px solid #00ff41;
+  color:#00ff41;font-family:'Share Tech Mono',monospace;
+  font-size:10px;letter-spacing:1px;
+  padding:5px 14px;border-radius:2px;
+  text-decoration:none;
+  transition:background .12s,color .12s,box-shadow .12s;
+}
+.sd-dl-btn:hover{background:#00ff41;color:#000;box-shadow:0 0 14px rgba(0,255,65,.5);}
+.sd-dl-size{color:#336633;font-size:9px;}
+.sd-dl-btn:hover .sd-dl-size{color:#003300;}
+</style>
+
 <!-- Keyboard decoration -->
 <div class="keyboard-deco">
   [ ESC ] [ F1 ] [ F2 ] [ F3 ] [ F4 ] [ F5 ] [ F6 ] [ F7 ] [ F8 ] [ F9 ] [ F10 ] [ F11 ] [ F12 ]<br>
