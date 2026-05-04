@@ -22,8 +22,9 @@ const GITHUB_BRANCH = 'master';
 const GITHUB_RAW    = `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}`;
 const BUILD_PATH    = 'firmware/SomloK/build/esp32.esp32.esp32s3';
 
-const IS_LOCAL = location.protocol === 'http:' &&
+const IS_LOCAL   = location.protocol === 'http:' &&
   (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
+const IS_SABLINA = location.hostname === 'sablina.opensable.com';
 
 const FLASH_MAP = [
   { offset: 0x0000,  name: 'SomloK.ino.bootloader.bin', label: 'BOOTLOADER' },
@@ -342,7 +343,16 @@ function buf2b64(buf) {
 // ── Init ──────────────────────────────────────────────────────────────────────
 updateSrcUI();
 
-if (!IS_LOCAL) {
+if (IS_SABLINA) {
+  // Production server: only GitHub makes sense — hide the other options
+  ['local','manual'].forEach(v => {
+    const el = document.querySelector(`input[value="${v}"]`);
+    el.disabled = true;
+    el.closest('label').style.display = 'none';
+  });
+  document.querySelector('input[value="github"]').checked = true;
+  updateSrcUI();
+} else if (!IS_LOCAL) {
   const lsRad = document.querySelector('input[value="local"]');
   lsRad.disabled = true;
   lsRad.closest('label').style.opacity = '.25';
@@ -366,7 +376,7 @@ const bootSeq = [
   ['Loading esptool-js @ 0.4.6...',                                         'sys' ],
   ['Binding Web Serial API...',                                              'sys' ],
   [navigator.serial ? 'Web Serial API .............. DETECTED' : 'Web Serial API .............. NOT AVAILABLE', navigator.serial?'ok':'err'],
-  [`Source mode ................. ${IS_LOCAL?'LOCAL SERVER ACTIVE':'MANUAL / GITHUB'}`, IS_LOCAL?'ok':'info'],
+  [`Source mode ................. ${IS_SABLINA?'GITHUB ONLY':IS_LOCAL?'LOCAL SERVER ACTIVE':'MANUAL / GITHUB'}`, (IS_SABLINA||IS_LOCAL)?'ok':'info'],
   ['Sablina AI core ............. ONLINE',                                  'pink'],
   ['──────────────────────────────────────────────────────',                'sys' ],
   ['Ready. Connect device and press [ FLASH ].',                            'sys' ],
@@ -767,8 +777,8 @@ input[type="file"]::-webkit-file-upload-button{
             · run <span>python tools/serve_flasher.py</span> first
           </div>
           <div class="src-info" id="src-info-github">
-            Downloading from GitHub branch <span>main</span>
-            · repo: <span>ICBizLabs/ESP32-DIV-KILAZ</span>
+            Downloading from GitHub branch <span>master</span>
+            · repo: <span>MaliosDark/ESP32-DIV-SOMLOK</span>
           </div>
 
           <!-- Manual file pickers -->
