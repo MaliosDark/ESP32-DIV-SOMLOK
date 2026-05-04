@@ -161,7 +161,7 @@ SomloK is a unified ESP32-S3 wireless research firmware build.
 - Reference repositories:
    - cifertech/ESP32-DIV
    - JesseCHale/ESP32-DIV
-   - ICBizLabs/ESP32-DIV-KILAZ
+   - MaliosDark/ESP32-DIV-SOMLOK
 
 ## Build And Flash
 

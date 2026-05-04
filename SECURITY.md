@@ -1,4 +1,4 @@
-# Security Policy,  SomloK / ESP32-DIV-KILAZ
+# Security Policy,  SomloK / ESP32-DIV-SOMLOK
 
 ## Scope
 
@@ -17,8 +17,8 @@ insecure default configurations, or exposed credentials,  please **do not open a
 
 | Method | Contact |
 |---|---|
-| GitHub Security Advisory | [github.com/ICBizLabs/ESP32-DIV-KILAZ/security/advisories/new](https://github.com/ICBizLabs/ESP32-DIV-KILAZ/security/advisories/new) |
-| Email | security@icbizlabs.com |
+| GitHub Security Advisory | [github.com/MaliosDark/ESP32-DIV-SOMLOK/security/advisories/new](https://github.com/MaliosDark/ESP32-DIV-SOMLOK/security/advisories/new) |
+| GitHub Issues | [github.com/MaliosDark/ESP32-DIV-SOMLOK/issues](https://github.com/MaliosDark/ESP32-DIV-SOMLOK/issues) |
 
 We will acknowledge your report within **72 hours** and aim to release a fix within **14 days**
 for critical issues.

@@ -50,7 +50,6 @@ UNIFICATION_PLAN.md
 !firmware/SomloK/build/**/*.bin
 *.zip
 manifest*.json
-index.html
 
 # ── Unused / private media at root ───────────────────────────────────────────
 sablina-ghost-humandect.mp4

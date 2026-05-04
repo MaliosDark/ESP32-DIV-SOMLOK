@@ -1,8 +1,8 @@
 # DISCLAIMER & TERMS OF USE
-## SomloK Firmware,  ESP32-DIV-KILAZ Project
+## SomloK Firmware,  ESP32-DIV-SOMLOK Project
 
 **Last updated: 2026**
-**Maintained by: ICBizLabs**
+**Maintained by: MaliosDark (Andryu Schittone)**
 
 ---
 
@@ -42,7 +42,7 @@ You agree that you will **only** use this software:
 
 TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:
 
-- **ICBizLabs**, its contributors, maintainers, affiliates, and any individual who has
+- **MaliosDark (Andryu Schittone)**, contributors, maintainers, and any individual who has
   submitted code, documentation, or assets to this repository (collectively, "the Authors")
   **accept zero liability** of any kind,  criminal, civil, regulatory, or otherwise,  for
   any harm, damage, loss, or legal consequence arising from the use or misuse of this software.
@@ -108,7 +108,7 @@ are technical descriptions of protocol interactions for educational purposes onl
 
 ## 7. Indemnification
 
-You agree to **indemnify, defend, and hold harmless** ICBizLabs and all Authors from and
+You agree to **indemnify, defend, and hold harmless** MaliosDark and all Authors from and
 against any and all claims, liabilities, damages, losses, costs, and expenses (including
 reasonable legal fees) arising from or related to:
 
