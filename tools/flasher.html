@@ -10,6 +10,12 @@
 (async () => {
 const { ESPLoader, Transport } = await import('https://unpkg.com/esptool-js@0.4.6/bundle.js');
 
+// Wait for DOM to be ready before accessing any elements
+await new Promise(resolve => {
+  if (document.readyState !== 'loading') resolve();
+  else document.addEventListener('DOMContentLoaded', resolve);
+});
+
 // ── Config ───────────────────────────────────────────────────────────────────
 const GITHUB_REPO   = 'MaliosDark/ESP32-DIV-SOMLOK';
 const GITHUB_BRANCH = 'master';
@@ -363,7 +369,7 @@ if (!('serial' in navigator)) {
 const bootSeq = [
   ['SOMLOK SYSTEM v1.0.0 ,  ESP32-DIV V2',                                'pink'],
   ['──────────────────────────────────────────────────────',                'sys' ],
-  ['Loading esptool-js @ 0.4.4...',                                         'sys' ],
+  ['Loading esptool-js @ 0.4.6...',                                         'sys' ],
   ['Binding Web Serial API...',                                              'sys' ],
   [navigator.serial ? 'Web Serial API .............. DETECTED' : 'Web Serial API .............. NOT AVAILABLE', navigator.serial?'ok':'err'],
   [`Source mode ................. ${IS_LOCAL?'LOCAL SERVER ACTIVE':'MANUAL / GITHUB'}`, IS_LOCAL?'ok':'info'],
@@ -679,7 +685,7 @@ input[type="file"]::-webkit-file-upload-button{
   <span>v1.0.0-somlok</span>
   <span>ESP32-DIV V2 · esptool-js</span>
   <span class="blink">█</span>
-  <span class="repo">ICBizLabs/ESP32-DIV-KILAZ</span>
+  <span class="repo">MaliosDark/ESP32-DIV-SOMLOK</span>
 </div>
 
 <!-- Monitor -->
