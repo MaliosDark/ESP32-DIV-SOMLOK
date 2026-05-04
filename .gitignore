@@ -38,6 +38,9 @@ tools/usb_sd_push.py
 # ── Internal config / docs ────────────────────────────────────────────────────
 config/
 docs/
+# But DO track SD assets for first-time setup
+!firmware/SomloK/sd-assets/
+!firmware/SomloK/sd-assets/**
 
 # ── Internal notes ────────────────────────────────────────────────────────────
 IDEAS.md
