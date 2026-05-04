@@ -11,7 +11,7 @@ import { ESPLoader, Transport } from 'https://unpkg.com/esptool-js@0.4.6/bundle.
 
 // ── Config ───────────────────────────────────────────────────────────────────
 const GITHUB_REPO   = 'MaliosDark/ESP32-DIV-SOMLOK';
-const GITHUB_BRANCH = 'main';
+const GITHUB_BRANCH = 'master';
 const GITHUB_RAW    = `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}`;
 const BUILD_PATH    = 'firmware/SomloK/build/esp32.esp32.esp32s3';
 
@@ -26,12 +26,18 @@ const FLASH_MAP = [
 
 const BAUD = 921600;
 
-const VID = {
+const VID = IS_LOCAL ? {
   idle:    '/media/sablina-idle.mp4',
   hacking: '/media/sablina-hackin.mp4',
   smiling: '/media/sablina-smiling.mp4',
   scream:  '/media/sablina-screaming.mp4',
   dance:   '/media/sablina-dance.mp4',
+} : {
+  idle:    `${GITHUB_RAW}/media/sablina-idle.mp4`,
+  hacking: `${GITHUB_RAW}/media/sablina-hackin.mp4`,
+  smiling: `${GITHUB_RAW}/media/sablina-smiling.mp4`,
+  scream:  `${GITHUB_RAW}/media/sablina-screaming.mp4`,
+  dance:   `${GITHUB_RAW}/media/sablina-dance.mp4`,
 };
 
 // ── State ────────────────────────────────────────────────────────────────────
@@ -50,7 +56,6 @@ const btnFlash   = $('btn-flash');
 
 // ── Video ────────────────────────────────────────────────────────────────────
 function setVideo(key) {
-  if (!IS_LOCAL) return;
   const src = VID[key];
   if (sabVid.dataset.cur === src) return;
   sabVid.dataset.cur = src;
@@ -368,7 +373,7 @@ const bootSeq = [
 let delay = 0;
 bootSeq.forEach(([t,c]) => { setTimeout(()=>log(t,c), delay); delay+=110; });
 
-if (IS_LOCAL) { sabVid.src = VID.idle; sabVid.play().catch(()=>{}); }
+sabVid.src = VID.idle; sabVid.play().catch(()=>{});
 </script>
 <style>
 /* ── Reset ──────────────────────────────────────────────────────────────── */
