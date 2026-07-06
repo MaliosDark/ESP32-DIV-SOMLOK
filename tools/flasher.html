@@ -29,6 +29,7 @@ const IS_SABLINA = location.hostname === 'sablina.opensable.com';
 const FLASH_MAP = [
   { offset: 0x0000,  name: 'SomloK.ino.bootloader.bin', label: 'BOOTLOADER' },
   { offset: 0x8000,  name: 'SomloK.ino.partitions.bin', label: 'PARTITIONS' },
+  { offset: 0xe000,  name: 'SomloK.ino.boot_app0.bin',  label: 'OTADATA'    },
   { offset: 0x10000, name: 'SomloK.ino.bin',            label: 'FIRMWARE'   },
 ];
 
@@ -290,8 +291,8 @@ btnFlash.addEventListener('click', async () => {
     }
     logSep(); log('Writing flash...','pink'); setVideo('dance'); setLed('led-flash','on');
     await espLoader.writeFlash({
-      fileArray, flashSize:'keep', flashMode:'dio', flashFreq:'80m',
-      eraseAll:false, compress:true,
+      fileArray, flashSize:'keep', flashMode:'keep', flashFreq:'keep',
+      eraseAll:true, compress:true,
       reportProgress: (idx, written, total) => {
         setProgress(35+Math.round((written/total)*60), `${FLASH_MAP[idx]?.label||'FLASH'}  ${Math.round((written/total)*100)}%`);
       },
