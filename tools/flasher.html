@@ -286,7 +286,7 @@ btnFlash.addEventListener('click', async () => {
         log(`${label} loaded from local file`,'info');
       }
       log(`${label}  addr=0x${offset.toString(16).padStart(5,'0')}  size=${(data.byteLength/1024).toFixed(1)} kB`,'ok');
-      fileArray.push({ data: buf2b64(data), address: offset });
+      fileArray.push({ data: buf2binstr(data), address: offset });
       setProgress(10+(i+1)*8, `LOADED: ${label}`);
     }
     logSep(); log('Writing flash...','pink'); setVideo('dance'); setLed('led-flash','on');
@@ -336,10 +336,10 @@ async function fetchBin(url) {
   if (!r.ok) throw new Error(`HTTP ${r.status}, ${url}`);
   return r.arrayBuffer();
 }
-function buf2b64(buf) {
+function buf2binstr(buf) {
   const b = new Uint8Array(buf); let s='';
   for (let i=0;i<b.length;i++) s+=String.fromCharCode(b[i]);
-  return btoa(s);
+  return s;
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
